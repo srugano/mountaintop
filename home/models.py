@@ -18,7 +18,7 @@ class HomePage(Page):
         on_delete=models.SET_NULL,
     )
     button_text = models.CharField(
-        max_length=50, default="Read More", blank=False, help_text="Read mor text"
+        max_length=50, default="Read More", blank=False, help_text="Read more "
     )
     banner_background_image = models.ForeignKey(
         "wagtailimages.Image",

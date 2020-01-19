@@ -2,10 +2,10 @@
 
 {% load wagtailimages_tags %}
 
-{% block content %}
+{% block banner %}
 
 	{% image page.banner_background_image fill-1600x800 as bg_img %}
-	<div class="jumbotron jumbotron-fluid text-light py-5 d-flex align-items-center cc-home-banner" style='background: linear-gradient (180.43deg, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.80) 100%), url({{ bg_img.url }});'>
+	<div class="jumbotron jumbotron-fluid text-light py-5 d-flex align-items-center cc-home-banner" style='background: linear-gradient(180.43deg, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.80) 100%), url({{ bg_img.url }}) !important;'>
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-8 col-lg-9">
@@ -24,4 +24,4 @@
 		</div>
 	</div>
 
-{% endblock content %}
+{% endblock banner %}
