@@ -6,7 +6,11 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 
 
 class ServiceListingPage(Page):
+    parent_page_types = ["home.HomePage"]
+    subpage_types = ["services.ServicePage"]
+    max_count = 1
 
+    template = "services/service_listing_page.html"
     subtitle = models.TextField(blank=True, max_length=500)
 
     content_panels = Page.content_panels + [
@@ -20,6 +24,8 @@ class ServiceListingPage(Page):
 
 
 class ServicePage(Page):
+    subpage_types = []
+    template = "services/service_page.html"
     description = models.TextField(blank=True, max_length=500)
     internal_page = models.ForeignKey(
         "wagtailcore.Page",
