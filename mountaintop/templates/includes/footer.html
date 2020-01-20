@@ -1,0 +1,60 @@
+{% load static wagtailcore_tags %}
+
+  <section class="py-4 mt-lg-5 mt-0" style='background-color: #814EBF; background-image: url("{% static 'images/contact-overlay.png' %}");'>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8 text-lg-left text-center">
+          <h2 class="h2 cc-contact-footer-h2">
+            FooterCTASettings.title
+          </h2>
+          <p class="cc-contact-footer-p mb-0">
+            FooterCTASettings.subtitle
+          </p>
+        </div>
+        <div class="col-lg-4 text-lg-right text-center">
+          <a href="#" class="btn btn-light btn-lg mt-lg-0 mt-3">
+            FooterCTASettings.button_text
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<footer class="bg-dark py-4 text-light text-md-left text-center cc-footer" >
+  <div class="container">
+    <div class="row mx-lg-n3">
+      <div class="px-lg-3 col-lg-3 col-md-6 col-sm-12">
+        <div class="cc-footer-title">Links</div>
+          {% for item in "1234" %}
+            <a class="cc-footer-link-lg d-block" href="#" target="_blank">
+              {{ item }}
+            </a>
+          {% endfor %}
+      </div>
+        <div class="px-lg-2 col-lg-3 col-md-6 col-sm-12">
+          <div class="cc-footer-title">Contact Us</div>
+          ContactSettings.contact
+        </div>
+        <div class="px-lg-4 col-lg-3 col-md-6 col-sm-12">
+          <div class="cc-footer-title">Hours</div>
+          HoursSettings.hours
+        </div>
+        <div class="px-lg-3 col-lg-3 col-md-6 col-sm-12">
+              <a href="#" class="cc-footer-social-icon">
+                <img src="{% static 'images/facebook.svg' %}" alt="Facebook">
+              </a>
+              <a href="#" class="cc-footer-social-icon">
+                <img src="{% static 'images/twitter.svg' %}" alt="Twitter">
+              </a>
+              <a href="#" class="cc-footer-social-icon">
+                <img src="{% static 'images/instagram.svg' %}" alt="Instagram">
+              </a>
+              <a href="#" class="cc-footer-social-icon">
+                <img src="{% static 'images/youtube.svg' %}" alt="YouTube">
+              </a>
+          <div class="cc-footer-copy">&copy; 2018 - {% now "Y" %} Mountain Top</div>
+      </div>
+    </div>
+  </div>
+</footer>
