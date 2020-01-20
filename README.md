@@ -1,6 +1,6 @@
 # Mountain Top
 
-This repository contains the code source four the website powering the Mountain Top website.
+This repository contains the code source four the website powering the Mountain Top website modeled using [wagtail](https://github.com/CodingForEverybody/rocketman)
 
 ## Installation
 

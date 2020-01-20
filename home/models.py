@@ -32,7 +32,8 @@ class HomePage(Page):
         on_delete=models.SET_NULL,
     )
     body = StreamField(
-        [("title", blocks.TitleBlock()), ("cards", blocks.CardBlock()),("image_and_text", blocks.ImageAndTextBlock())],
+        [("title", blocks.TitleBlock()), ("cards", blocks.CardBlock()),("image_and_text", blocks.ImageAndTextBlock()),
+        ("cta", blocks.CallToActionBlock())],
         null=True,
         blank=True,
     )

@@ -87,3 +87,16 @@ class ImageAndTextBlock(blocks.StructBlock):
         template = "streams/image_and_text_block.html"
         icon = "image"
         label = 'Image & Text'
+
+
+class CallToActionBlock(blocks.StructBlock):
+    title = blocks.CharBlock(max_length=200, help_text='Max length of 200 characters')
+    link = Link()
+
+    class Meta:
+        template = "streams/call_to_action_block.html"
+        icon = "plus"
+        label = "Call to Action"
+
+
+
