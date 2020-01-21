@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.cache import cache
+from django.core.cache.utils import make_template_fragment_key
 from modelcluster.models import ClusterableModel
 from django_extensions.db.fields import AutoSlugField
 from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel, InlinePanel
@@ -20,6 +22,16 @@ class Menu(ClusterableModel):
 
     def __str__(self):
         return self.title
+
+    def save(self, **kwargs):
+
+        key = make_template_fragment_key("site_header")
+        cache.delete(key)
+
+        key = make_template_fragment_key("site_footer")
+        cache.delete(key)
+
+        return super().save(**kwargs)
 
 
 class MenuItem(Orderable):

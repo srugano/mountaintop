@@ -26,7 +26,7 @@ INTERNAL_IPS = ("127.0.0.1",)
 cwd = os.getcwd()
 
 CACHES = {'default': {
-    "BACKEND": "django.core.cache.backends.filebased.FileBaseCache",
+    "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
     "LOCATION": f"{cwd}/.cache"
     }
 }

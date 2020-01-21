@@ -1,4 +1,4 @@
-{% load static menu_tags %}
+{% load static menu_tags cache %}
 
 {% get_menu "main-menu" as navigation %}
 
@@ -12,6 +12,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarMenu">
       <ul class="navbar-nav ml-auto">
+        {% cache 2592000 site_header %}
           {% for item in navigation.menu_items.all %}
             <li class="nav-item active">
               <a class="nav-link" href="{{ item.link }}" {% if item.open_in_new_tab %}target="_blank"{% endif %}>
@@ -19,6 +20,7 @@
               </a>
             </li>
           {% endfor %}
+        {% endcache %}
       </ul>
     </div>
   </div>
