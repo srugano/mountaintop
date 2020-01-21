@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "testimonials",
     "streams",
     "menus",
+    "contact",
     
     "wagtail.contrib.forms",
     'wagtail.contrib.modeladmin',
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     "wagtail.core",
     "modelcluster",
     "taggit",
+    'widget_tweaks',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
