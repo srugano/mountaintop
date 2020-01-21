@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags menu_tags %}
+{% load static menu_tags wagtailcore_tags %}
 {% get_menu "main-menu" as navigation %}
 
   <section class="py-4 mt-lg-5 mt-0" style='background-color: #814EBF; background-image: url("{% static 'images/contact-overlay.png' %}");'>
@@ -6,15 +6,15 @@
       <div class="row align-items-center">
         <div class="col-lg-8 text-lg-left text-center">
           <h2 class="h2 cc-contact-footer-h2">
-            FooterCTASettings.title
+            {{ settings.site_settings.FooterCTASettings.title }}
           </h2>
           <p class="cc-contact-footer-p mb-0">
-            FooterCTASettings.subtitle
+            {{ settings.site_settings.FooterCTASettings.subtitle }}
           </p>
         </div>
         <div class="col-lg-4 text-lg-right text-center">
-          <a href="#" class="btn btn-light btn-lg mt-lg-0 mt-3">
-            FooterCTASettings.button_text
+          <a href="{% if settings.site_settings.FooterCTASettings.button_internal_page %}{{ settings.site_settings.FooterCTASettings.button_internal_page.url }}{% elif settings.site_settings.FooterCTASettings.button_external_page %}{{ settings.site_settings.FooterCTASettings.button_external_page }}{% else %}/{% endif %}" class="btn btn-light btn-lg mt-lg-0 mt-3">
+            {{ settings.site_settings.FooterCTASettings.button_text }}
           </a>
         </div>
       </div>
@@ -35,26 +35,34 @@
       </div>
         <div class="px-lg-2 col-lg-3 col-md-6 col-sm-12">
           <div class="cc-footer-title">Contact Us</div>
-          ContactSettings.contact
+          {{ settings.site_settings.ContactSettings.contact|richtext }}
         </div>
         <div class="px-lg-4 col-lg-3 col-md-6 col-sm-12">
           <div class="cc-footer-title">Hours</div>
-          HoursSettings.hours
+          {{ settings.site_settings.HoursSettings.hours|richtext }}
         </div>
         <div class="px-lg-3 col-lg-3 col-md-6 col-sm-12">
-              <a href="#" class="cc-footer-social-icon">
+            {% if settings.site_settings.SocialMediaSettings.facebook %}
+              <a href="{{ settings.site_settings.SocialMediaSettings.facebook }}" class="cc-footer-social-icon">
                 <img src="{% static 'images/facebook.svg' %}" alt="Facebook">
               </a>
-              <a href="#" class="cc-footer-social-icon">
+            {% endif %}
+            {% if settings.site_settings.SocialMediaSettings.twitter %}
+              <a href="{{ settings.site_settings.SocialMediaSettings.twitter }}" class="cc-footer-social-icon">
                 <img src="{% static 'images/twitter.svg' %}" alt="Twitter">
               </a>
-              <a href="#" class="cc-footer-social-icon">
+            {% endif %}
+            {% if settings.site_settings.SocialMediaSettings.instagram %}
+              <a href="{{ settings.site_settings.SocialMediaSettings.instagram }}" class="cc-footer-social-icon">
                 <img src="{% static 'images/instagram.svg' %}" alt="Instagram">
               </a>
-              <a href="#" class="cc-footer-social-icon">
+            {% endif %}
+            {% if settings.site_settings.SocialMediaSettings.youtube %}
+              <a href="{{ settings.site_settings.SocialMediaSettings.youtube }}" class="cc-footer-social-icon">
                 <img src="{% static 'images/youtube.svg' %}" alt="YouTube">
               </a>
-          <div class="cc-footer-copy">&copy; 2018 - {% now "Y" %} Mountain Top</div>
+            {% endif %}
+          <div class="cc-footer-copy">&copy; 2016 - {% now "Y" %} Mountain Top</div>
       </div>
     </div>
   </div>

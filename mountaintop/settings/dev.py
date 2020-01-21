@@ -1,3 +1,4 @@
+import os
 from .base import *
 from .base import INSTALLED_APPS, MIDDLEWARE
 
@@ -21,6 +22,14 @@ MIDDLEWARE += [
 ]
 
 INTERNAL_IPS = ("127.0.0.1",)
+
+cwd = os.getcwd()
+
+CACHES = {'default': {
+    "BACKEND": "django.core.cache.backends.filebased.FileBaseCache",
+    "LOCATION": f"{cwd}/.cache"
+    }
+}
 
 try:
     from .local import *
