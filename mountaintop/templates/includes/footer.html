@@ -1,4 +1,5 @@
-{% load static wagtailcore_tags %}
+{% load static wagtailcore_tags menu_tags %}
+{% get_menu "main-menu" as navigation %}
 
   <section class="py-4 mt-lg-5 mt-0" style='background-color: #814EBF; background-image: url("{% static 'images/contact-overlay.png' %}");'>
     <div class="container">
@@ -26,9 +27,9 @@
     <div class="row mx-lg-n3">
       <div class="px-lg-3 col-lg-3 col-md-6 col-sm-12">
         <div class="cc-footer-title">Links</div>
-          {% for item in "1234" %}
-            <a class="cc-footer-link-lg d-block" href="#" target="_blank">
-              {{ item }}
+          {% for item in navigation.menu_items.all %}
+            <a class="cc-footer-link-lg d-block" href="{{ item.link }}" {% if item.open_in_new_tab %}target="_blank"{% endif %}>
+              {{ item.title }}
             </a>
           {% endfor %}
       </div>
