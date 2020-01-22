@@ -33,12 +33,12 @@ INSTALLED_APPS = [
     "menus",
     "contact",
     "site_settings",
-    
     "wagtail.contrib.forms",
-    'wagtail.contrib.modeladmin',
+    "wagtail.contrib.modeladmin",
     "wagtail.contrib.redirects",
     "wagtail.contrib.table_block",
     "wagtail.contrib.settings",
+    "wagtail.contrib.sitemaps",
     "wagtail.embeds",
     "wagtail.sites",
     "wagtail.users",
@@ -50,13 +50,14 @@ INSTALLED_APPS = [
     "wagtail.core",
     "modelcluster",
     "taggit",
-    'widget_tweaks',
+    "widget_tweaks",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sitemaps",
 ]
 
 MIDDLEWARE = [
@@ -161,4 +162,4 @@ WAGTAIL_SITE_NAME = "mountaintop"
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = "http://example.com"
+BASE_URL = "https://stockman.ngrok.io"
