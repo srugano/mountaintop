@@ -1,4 +1,6 @@
+import os
 from .base import *
+from .base import INSTALLED_APPS, MIDDLEWARE
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -11,6 +13,23 @@ ALLOWED_HOSTS = ["*"]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
+INSTALLED_APPS += [
+    "debug_toolbar",
+]
+
+MIDDLEWARE += [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
+]
+
+INTERNAL_IPS = ("127.0.0.1",)
+
+cwd = os.getcwd()
+
+CACHES = {'default': {
+    "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
+    "LOCATION": f"{cwd}/.cache"
+    }
+}
 
 try:
     from .local import *

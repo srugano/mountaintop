@@ -16,7 +16,7 @@ npm-debug.log*
 /.cache/
 /.pytest_cache/
 /media/
-/rocketmanvenv/
+/mountaintopvenv/
 
 ### JetBrains
 .idea/
